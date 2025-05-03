@@ -1,0 +1,17 @@
+digraph INFRA {
+  node [ color = "black", fillcolor = "#E6E6E6", height =1, style = "filled,bold,rounded", fontname = "Arial" ];
+  "ECR Repository" [ label = "ECR Repository
+(AWS::ECR::Repository)", shape =cylinder, fillcolor = "#FFF5CD" ];
+  "S3 Bucket" [ label = "S3 Bucket
+(AWS::S3::Bucket)", shape =cylinder, fillcolor = "#FFF5CD" ];
+  "Docker Image" [ label = "Docker Image
+(Docker::Image)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "GitOps Repository" [ label = "GitOps Repository
+(Git::Repository)", shape =rectangle ];
+  "CodeBuild Project" [ label = "CodeBuild Project
+(AWS::CodeBuild::Project)", shape =rectangle ];
+  "Docker Image" -> "ECR Repository";
+  "CodeBuild Project" -> "ECR Repository";
+  "CodeBuild Project" -> "S3 Bucket";
+  "CodeBuild Project" -> "GitOps Repository";
+}
